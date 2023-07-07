@@ -1,0 +1,22 @@
+# Created using wingetcreate 1.2.6.0
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.4.0.schema.json
+
+PackageIdentifier: Nvidia.GeForceGameReadyDriver
+PackageVersion: "536.40"
+Installers:
+- InstallerUrl: https://us.download.nvidia.com/Windows/536.40/536.40-desktop-win10-win11-64bit-international-dch-whql.exe
+  Architecture: x64
+  MinimumOSVersion: 10.0.0.0
+  InstallerType: exe
+  InstallerSha256: 9BDFFB76AFFAEAF38646673898AB697F1AAE2122CFE1CB6A07C37C468ABC7F19
+  InstallerSwitches:
+    Silent: /s
+    SilentWithProgress: /s
+    Custom: /gfexperienceinitiated /noreboot # Prevent GeForce Experience installation; no reboot
+  ElevationRequirement: elevatesSelf
+  ExpectedReturnCodes:
+    - InstallerReturnCode: 3858759936
+      ReturnResponse: systemNotSupported
+  Scope: machine
+ManifestType: installer
+ManifestVersion: 1.4.0
